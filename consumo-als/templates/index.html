@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function check() {
+            const kilometros = $('#kilometros')
+            const tiempo = $('#tiempo')
+            const consumoMedio = $('#consumoMedio')
+
+            if(kilometros.val().length === 0 || tiempo.val().length === 0 || consumoMedio.val().length === 0){
+                alert("Todos los campos son obligatorios");
+                return false;
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <h1>APP Consumo</h1>
+    <h3>Introduce los datos solicitados: </h3>
+    <form id="formConsumo" onsubmit="return check()" action="/consumo" method="post">
+        <label for="kilometros">Distancia: </label>
+        <input name="kilometros" id="kilometros" type="number" min="0"/> km<br>
+        <label for="tiempo">Tiempo: </label>
+        <input name="tiempo" id="tiempo" type="number" min="1"/> sec<br>
+        <label for="consumoMedio">Consumo medio: </label>
+        <input name="consumoMedio" id="consumoMedio" type="number" min="0"/> L/km<br><br>
+
+        <input type="submit" value="Aceptar"/>
+
+    </form>
+</body>
+</html>
